@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Out-Pass Generation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input, select, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .login-container {
+            width: 30%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .login-container h1 {
+            text-align: center;
+            color: #333;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container label {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .login-container input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+        .user-selection-container {
+            width: 30%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+        .user-selection-container button {
+            padding: 10px;
+            margin: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .user-selection-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-selection-container" id="userSelectionContainer">
+        <h1>Select User Type</h1>
+        <button onclick="showLoginForm('student')">Student</button>
+        <button onclick="showLoginForm('warden')">Warden</button>
+    </div>
+
+    <div class="login-container" id="studentLoginContainer" style="display: none;">
+        <h1>Student Login</h1>
+        <form id="studentLoginForm">
+            <label for="studentUsername">Username:</label>
+            <input type="text" id="studentUsername" name="username" required>
+
+            <label for="studentPassword">Password:</label>
+            <input type="password" id="studentPassword" name="password" required>
+            <p style="text-align:center;">Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a></p>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div class="login-container" id="wardenLoginContainer" style="display: none;">
+        <h1>Warden Login</h1>
+        <form id="wardenLoginForm">
+            <label for="wardenUsername">Username:</label>
+            <input type="text" id="wardenUsername" name="username" required>
+
+            <label for="wardenPassword">Password:</label>
+            <input type="password" id="wardenPassword" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div class="container" id="outPassContainer" style="display: none;">
+        <h1>Automated Out-Pass Generation</h1>
+        <form id="outPassForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="studentId">Student ID:</label>
+            <input type="text" id="studentId" name="studentId" required>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science and Engineering</option>
+                <option value="ECE">Electronics and Communication Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="CE">Civil Engineering</option>
+                <!-- Add more departments as needed -->
+            </select>
+
+            <label for="reason">Reason for Out-Pass:</label>
+            <textarea id="reason" name="reason" rows="4" required></textarea>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </div>
+
+    <div class="container" id="studentDetailsContainer" style="display: none;">
+        <h1>Student Out-Pass Requests</h1>
+        <div id="studentDetails">
+            <!-- Student details will be populated here -->
+        </div>
+    </div>
+   <script src="main1.js"></script>
+</body>
+</html>

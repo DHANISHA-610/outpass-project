@@ -110,75 +110,103 @@
 </head>
 <body>
     <div class="user-selection-container" id="userSelectionContainer">
-        <h1>Select User Type</h1>
-        <button onclick="showLoginForm('student')">Student</button>
-        <button onclick="showLoginForm('warden')">Warden</button>
+    <h1>Select User Type</h1>
+    <button onclick="showLoginForm('student')">Student</button>
+    <button onclick="showLoginForm('warden')">Warden</button>
+</div>
+
+<div class="login-container" id="studentLoginContainer" style="display: none;">
+    <h1>Student Login</h1>
+    <form id="studentLoginForm">
+        <label for="studentUsername">Username:</label>
+        <input type="text" id="studentUsername" name="username" required>
+
+        <label for="studentPassword">Password:</label>
+        <input type="password" id="studentPassword" name="password" required>
+
+        <p style="text-align:center;">
+            Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a>
+        </p>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<div class="login-container" id="wardenLoginContainer" style="display: none;">
+    <h1>Warden Login</h1>
+    <form id="wardenLoginForm">
+        <label for="wardenUsername">Username:</label>
+        <input type="text" id="wardenUsername" name="username" required>
+
+        <label for="wardenPassword">Password:</label>
+        <input type="password" id="wardenPassword" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<!-- 🔽 Register Form -->
+<div class="login-container" id="registerContainer" style="display: none;">
+    <h1>Register</h1>
+    <form id="registerForm">
+        <label for="registerUsername">Username:</label>
+        <input type="text" id="registerUsername" name="username" required>
+
+        <label for="registerPassword">Password:</label>
+        <input type="password" id="registerPassword" name="password" required>
+
+        <label for="registerRole">Role:</label>
+        <select id="registerRole" name="role" required>
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+            <option value="warden">Warden</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+    <p style="text-align:center;">
+        Already have an account? <a href="#" onclick="goToLogin()">Login here</a>
+    </p>
+</div>
+<!-- outPassForm -->
+<div class="container" id="outPassContainer" style="display: none;">
+    <h1>Automated Out-Pass Generation</h1>
+    <form id="outPassForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" name="studentId" required>
+
+        <label for="department">Department:</label>
+        <select id="department" name="department" required>
+            <option value="">Select Department</option>
+            <option value="CSE">Computer Science and Engineering</option>
+            <option value="ECE">Electronics and Communication Engineering</option>
+            <option value="ME">Mechanical Engineering</option>
+            <option value="CE">Civil Engineering</option>
+        </select>
+
+        <label for="reason">Reason for Out-Pass:</label>
+        <textarea id="reason" name="reason" rows="4" required></textarea>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <button type="submit">Submit Request</button>
+    </form>
+</div>
+
+<div class="container" id="studentDetailsContainer" style="display: none;">
+    <h1>Student Out-Pass Requests</h1>
+    <div id="studentDetails">
+        <!-- Student details will be populated here -->
     </div>
+</div>
 
-    <div class="login-container" id="studentLoginContainer" style="display: none;">
-        <h1>Student Login</h1>
-        <form id="studentLoginForm">
-            <label for="studentUsername">Username:</label>
-            <input type="text" id="studentUsername" name="username" required>
-
-            <label for="studentPassword">Password:</label>
-            <input type="password" id="studentPassword" name="password" required>
-            <p style="text-align:center;">Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a></p>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <div class="login-container" id="wardenLoginContainer" style="display: none;">
-        <h1>Warden Login</h1>
-        <form id="wardenLoginForm">
-            <label for="wardenUsername">Username:</label>
-            <input type="text" id="wardenUsername" name="username" required>
-
-            <label for="wardenPassword">Password:</label>
-            <input type="password" id="wardenPassword" name="password" required>
-
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <div class="container" id="outPassContainer" style="display: none;">
-        <h1>Automated Out-Pass Generation</h1>
-        <form id="outPassForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="studentId">Student ID:</label>
-            <input type="text" id="studentId" name="studentId" required>
-
-            <label for="department">Department:</label>
-            <select id="department" name="department" required>
-                <option value="">Select Department</option>
-                <option value="CSE">Computer Science and Engineering</option>
-                <option value="ECE">Electronics and Communication Engineering</option>
-                <option value="ME">Mechanical Engineering</option>
-                <option value="CE">Civil Engineering</option>
-                <!-- Add more departments as needed -->
-            </select>
-
-            <label for="reason">Reason for Out-Pass:</label>
-            <textarea id="reason" name="reason" rows="4" required></textarea>
-
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
-
-            <button type="submit">Submit Request</button>
-        </form>
-    </div>
-
-    <div class="container" id="studentDetailsContainer" style="display: none;">
-        <h1>Student Out-Pass Requests</h1>
-        <div id="studentDetails">
-            <!-- Student details will be populated here -->
-        </div>
-    </div>
    <script src="main1.js"></script>
 </body>
 </html>
